@@ -310,6 +310,8 @@
       resetPositionBtn.addEventListener("click", () => {
         localStorage.removeItem("dashboardPositionX");
         localStorage.removeItem("dashboardPositionY");
+        dashboard.style.top = "50%";
+        dashboard.style.left = "50%";
       });
 
       const processBtns = document.querySelectorAll(

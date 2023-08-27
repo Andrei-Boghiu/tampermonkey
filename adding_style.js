@@ -14,10 +14,21 @@
     // Define your CSS styles using GM_addStyle
     const customStyles = `
         .tampermonkey-div {
-            background-color: lightblue;
-            padding: 10px;
-            color: white;
-        }
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: #4CAF50;
+            color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(76, 175, 80, 0.2);
+            }
+        .tampermonkey-div:hover {
+            background-color: #45a049;
+            }
     `;
 
     // Apply the styles using GM_addStyle

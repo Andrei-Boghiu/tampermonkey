@@ -88,3 +88,61 @@ if (textarea) {
     textarea.dispatchEvent(blurEvent);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const targetElement = document.getElementById('target-element'); // Replace with the actual target element
+
+// Triggering focus event
+const focusEvent = new Event('focus', { bubbles: true });
+targetElement.dispatchEvent(focusEvent);
+
+// Triggering input event
+const inputEvent = new Event('input', { bubbles: true });
+targetElement.value = 'Some input text';
+targetElement.dispatchEvent(inputEvent);
+
+// Triggering blur event
+const blurEvent = new Event('blur', { bubbles: true });
+targetElement.dispatchEvent(blurEvent);
+
+// Triggering change event
+const changeEvent = new Event('change', { bubbles: true });
+targetElement.dispatchEvent(changeEvent);
+
+// Triggering keydown event (e.g., simulating pressing the 'Enter' key)
+const keydownEvent = new KeyboardEvent('keydown', {
+    key: 'Enter',
+    bubbles: true,
+    cancelable: true,
+});
+targetElement.dispatchEvent(keydownEvent);
+
+// Triggering keypress event (e.g., simulating pressing the 'A' key)
+const keypressEvent = new KeyboardEvent('keypress', {
+    key: 'A',
+    bubbles: true,
+    cancelable: true,
+});
+targetElement.dispatchEvent(keypressEvent);
+
+// Triggering keyup event (e.g., simulating releasing the 'Enter' key)
+const keyupEvent = new KeyboardEvent('keyup', {
+    key: 'Enter',
+    bubbles: true,
+    cancelable: true,
+});
+targetElement.dispatchEvent(keyupEvent);
+
+// Triggering mouse click event
+const clickEvent = new MouseEvent('click', {
+    bubbles: true,
+    cancelable: true,
+    clientX: 100, // X-coordinate of the click
+    clientY: 100, // Y-coordinate of the click
+});
+targetElement.dispatchEvent(clickEvent);
+
+// Triggering custom event (assuming 'custom-event' is a custom event name used on the page)
+const customEvent = new Event('custom-event', { bubbles: true });
+targetElement.dispatchEvent(customEvent);
+

@@ -146,3 +146,25 @@ targetElement.dispatchEvent(clickEvent);
 const customEvent = new Event('custom-event', { bubbles: true });
 targetElement.dispatchEvent(customEvent);
 
+
+////////////////////////////////////////////////////////////////////////////
+jQuery
+
+
+
+const targetTextarea = $('#your-textarea-selector'); // Replace with the actual selector for your textarea
+
+// Simulate focusing on the textarea
+targetTextarea.trigger('focus');
+
+// Simulate typing text into the textarea
+const commentText = 'This is a test comment.';
+for (let i = 0; i < commentText.length; i++) {
+    const char = commentText.charAt(i);
+    targetTextarea.val(targetTextarea.val() + char); // Append the character
+    targetTextarea.trigger($.Event('input', { key: char })); // Trigger input event for each character
+}
+
+// Optionally, trigger a change event if needed (some pages rely on change events)
+targetTextarea.trigger('change');
+

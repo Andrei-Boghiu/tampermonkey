@@ -51,3 +51,40 @@ newBtn.addEventListener("click", () => {
 
 // Append the new button to the same parent as the existing button
 existingBtn.parentElement.appendChild(newBtn);
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// Find the textarea element by its CSS selector
+const textarea = document.querySelector('textarea');
+
+// Check if the textarea element exists on the page
+if (textarea) {
+    // Trigger a focus event to give the textarea focus
+    const focusEvent = new Event('focus', { bubbles: true });
+    textarea.dispatchEvent(focusEvent);
+
+    // Create an input event to simulate typing
+    const inputEvent = new Event('input', { bubbles: true });
+
+    // Simulate typing each character with a delay between keypresses
+    const textToType = 'Your text here';
+    const delayBetweenKeypresses = 100; // milliseconds
+
+    async function typeText() {
+        for (let i = 0; i < textToType.length; i++) {
+            textarea.value += textToType[i];
+            textarea.dispatchEvent(inputEvent);
+            await new Promise(resolve => setTimeout(resolve, delayBetweenKeypresses));
+        }
+    }
+
+    // Simulate typing text
+    typeText();
+
+    // Trigger a blur event to simulate moving focus away from the textarea
+    const blurEvent = new Event('blur', { bubbles: true });
+    textarea.dispatchEvent(blurEvent);
+}
+

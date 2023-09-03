@@ -167,4 +167,45 @@ for (let i = 0; i < commentText.length; i++) {
 
 // Optionally, trigger a change event if needed (some pages rely on change events)
 targetTextarea.trigger('change');
+///////////////////////////////////////////////////////////////////////////////
+
+
+const targetTextarea = $('#your-textarea-selector'); // Replace with the actual selector for your textarea
+const submitButton = $('#submit-button-selector'); // Replace with the selector for a submit button
+
+// Simulate focusing on the textarea
+targetTextarea.trigger('focus');
+
+// Simulate typing text into the textarea with delays between characters
+const commentText = 'This is a complex test comment with delays between characters.';
+const typingSpeed = 50; // Milliseconds per character
+
+async function typeComment() {
+    for (let i = 0; i < commentText.length; i++) {
+        const char = commentText.charAt(i);
+        targetTextarea.val(targetTextarea.val() + char); // Append the character
+        targetTextarea.trigger($.Event('input', { key: char })); // Trigger input event for each character
+        await new Promise(resolve => setTimeout(resolve, typingSpeed));
+    }
+}
+
+// Simulate a user clicking a submit button after typing the comment
+async function submitComment() {
+    await typeComment(); // Type the comment first
+    submitButton.trigger('click'); // Simulate clicking the submit button
+}
+
+// Optionally, trigger additional events or interactions as needed
+
+// Example: Simulate user interaction that depends on a condition
+if (commentText.includes('complex')) {
+    // Simulate another action if the comment contains the word 'complex'
+    // For example, triggering a custom event or clicking another element
+    targetTextarea.trigger('custom-event');
+}
+
+// Simulate focusing on another element after submitting the comment
+const anotherElement = $('#another-element-selector'); // Replace with the selector for another element
+targetTextarea.trigger('blur'); // Remove focus from the textarea
+anotherElement.trigger('focus'); // Focus on another element
 

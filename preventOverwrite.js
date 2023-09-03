@@ -44,7 +44,7 @@ newBtn.textContent = "New Button"; // Set the button text as an example
 newBtn.addEventListener("click", () => {
     textarea.focus();
     textarea.value = "special_item"; // Set the comment directly
-    textarea.dispatchEvent(new Event("input", { bubbles: true })); // Trigger the input event
+    textarea.dispatchEvent(new Event("input", { bubbles: true, cancelable: true, })); // Trigger the input event
     textarea.dispatchEvent(new Event("change", { bubbles: true })); // Trigger a change event
     existingBtn.click();
 });

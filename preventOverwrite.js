@@ -209,3 +209,21 @@ const anotherElement = $('#another-element-selector'); // Replace with the selec
 targetTextarea.trigger('blur'); // Remove focus from the textarea
 anotherElement.trigger('focus'); // Focus on another element
 
+
+/////////////////////////////////////////////////////////////////
+
+
+// When a user types a comment in a textarea, several events are typically triggered and propagate through the DOM. These events allow the web page to respond to the user's input and update the textarea's value. Here are the main events that occur:
+
+// 1. **keydown**: This event is triggered when a key on the keyboard is pressed down. It occurs before the character is actually inserted into the textarea. The `event.key` and `event.keyCode` properties are often used to determine which key was pressed.
+
+// 2. **keypress**: This event is triggered when a character is about to be inserted into the textarea as a result of a key press. It is not triggered for non-character keys (e.g., Ctrl, Shift, Enter). The `event.key` and `event.keyCode` properties can also be used with this event.
+
+// 3. **input**: This event is triggered when the value of the textarea is changed. It can result from various actions, including keyboard input, paste events, or programmatically changing the value of the textarea. The `event.target.value` property contains the updated value of the textarea.
+
+// 4. **keyup**: This event is triggered when a key on the keyboard is released. It occurs after the character has been inserted into the textarea. Like `keydown`, the `event.key` and `event.keyCode` properties can be used to identify the released key.
+
+// 5. **change**: This event is triggered when the textarea's value changes and loses focus. It's not typically used for real-time input tracking since it requires the textarea to lose focus before firing.
+
+// Here's a simple example of how you can listen for the `input` event to track user input in a textarea using JavaScript:
+
